@@ -1,0 +1,73 @@
+:root {
+  color-scheme: dark;
+  --ink: #f6f7fb;
+  --muted: #b9c3d8;
+  --accent: #acefcd;
+  --surface: #19243d;
+  --outline: #3b4964;
+  font-family: "DM Sans", system-ui, sans-serif;
+  line-height: 1.55;
+  background: #10182c;
+  color: var(--ink);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: inherit; }
+a:focus-visible { outline: 3px solid #ffcd82; outline-offset: 5px; }
+.skip-link { position: absolute; top: 1rem; left: 1rem; z-index: 1; transform: translateY(-200%); padding: .6rem 1rem; background: var(--accent); color: #10182c; }
+.skip-link:focus { transform: none; }
+
+.shell { width: min(70rem, calc(100% - 2.5rem)); margin-inline: auto; }
+.site-header, .site-header nav { display: flex; align-items: center; gap: 1.1rem; }
+.site-header { justify-content: space-between; flex-wrap: wrap; padding-block: 1.1rem; border-bottom: 1px solid var(--outline); }
+.site-header nav a, .brand { display: inline-flex; align-items: center; min-height: 2.75rem; text-decoration: none; }
+.site-header nav a { color: var(--muted); }
+.site-header nav a:hover { color: var(--ink); text-decoration: underline; }
+.brand { gap: .65rem; font-weight: 800; }
+.brand-mark { width: 1.3rem; aspect-ratio: 1; background: conic-gradient(#acefcd 25%, #6ea8f7 0 50%, #f8be83 0 75%, #c9a5fb 0); border-radius: .25rem; }
+
+.hero { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: clamp(1.7rem, 6vw, 6rem); padding-block: clamp(3rem, 10vw, 7rem); }
+h1, h2, h3, p { margin: 0; }
+h1 { font-size: clamp(2rem, 8vw, 5.75rem); line-height: 1.02; letter-spacing: -.055em; overflow-wrap: anywhere; }
+h2 { font-size: clamp(1.45rem, 4vw, 2rem); letter-spacing: -.025em; }
+h3 { font-size: 1.4rem; line-height: 1.2; }
+p { color: var(--muted); }
+.hero p { margin-block: 1.25rem 1.65rem; font-size: clamp(1.05rem, 3vw, 1.3rem); max-width: 30ch; }
+.button, .text-link { display: inline-flex; align-items: center; gap: .55rem; min-height: 2.75rem; font-weight: 700; }
+.button { background: var(--accent); color: #10182c; padding: .55rem 1rem; border-radius: .6rem; text-decoration: none; }
+.button:hover { background: #d0f7e3; }
+.text-link { color: var(--accent); text-underline-offset: .2em; overflow-wrap: anywhere; }
+.text-link:hover { color: #d0f7e3; }
+
+.mosaic { display: grid; grid-template-columns: repeat(4, 1fr); gap: .3rem; padding: .55rem; border: 1px solid var(--outline); border-radius: 1rem; background: var(--surface); }
+.mosaic span { aspect-ratio: 1; background: linear-gradient(135deg, #acefcd 50%, #2a655f 50%); border-radius: .19rem; }
+.mosaic span:nth-child(3n) { background: linear-gradient(45deg, #d5b3ff 50%, #645184 50%); }
+.mosaic span:nth-child(4n + 2) { background: linear-gradient(225deg, #ffc581 50%, #a66c58 50%); }
+.mosaic span:nth-child(4n) { background: linear-gradient(315deg, #76aafb 50%, #374c8c 50%); }
+
+.games { margin-bottom: 2rem; }
+.games-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1rem; }
+.games-grid article { display: grid; align-content: start; justify-items: start; gap: .85rem; padding: clamp(1.2rem, 4vw, 2rem); border: 1px solid var(--outline); border-radius: 1rem; background: var(--surface); }
+.game-mark { width: 2.75rem; aspect-ratio: 1; border-radius: .55rem; }
+.game-mark--puzzle { background: conic-gradient(#76aafb 25%, #d5b3ff 0 50%, #acefcd 0 75%, #ffc581 0); }
+.game-mark--happy { background: radial-gradient(circle at 35% 35%, #ffc581 0 19%, transparent 20%), radial-gradient(circle at 66% 64%, #acefcd 0 25%, transparent 26%), #574a86; }
+.support { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .8rem 1.5rem; padding-block: 1.6rem; border-top: 1px solid var(--outline); }
+.support p { margin-top: .4rem; }
+.site-footer { border-top: 1px solid var(--outline); color: var(--muted); padding-block: 1.4rem; }
+
+.policy { max-width: 46rem; padding-block: 3rem; }
+.policy h1 { font-size: clamp(2rem, 7vw, 3.6rem); }
+.policy h2 { margin: 1.8rem 0 .5rem; }
+.policy p + p { margin-top: .8rem; }
+.review-note { margin: 1.3rem 0; padding: .85rem 1rem; border-left: 3px solid var(--accent); background: var(--surface); }
+
+@media (max-width: 43rem) {
+  .hero, .games-grid { grid-template-columns: minmax(0, 1fr); }
+  .mosaic { max-width: 24rem; }
+}
+
+@media (max-width: 22rem) {
+  .shell { width: calc(100% - 1.5rem); }
+  .site-header, .site-header nav { gap: .65rem; }
+}
